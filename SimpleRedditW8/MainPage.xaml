@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="SimpleRedditW8.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimpleRedditW8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:simpleRedditWp8="using:SimpleRedditWP8"
+    mc:Ignorable="d"    
+    d:DataContext="{d:DesignData ../SimpleRedditPCL/SampleData/MainViewModelSampleData.xaml}"
+        >
+    <Page.Resources>
+        <simpleRedditWp8:BoolToVisibilityConverter x:Key="DataLoading" FalseValue="Visible" TrueValue="Collapsed"/>
+        <simpleRedditWp8:BoolToVisibilityConverter x:Key="DataLoaded" FalseValue="Collapsed" TrueValue="Visible"/>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <ListView ItemsSource="{Binding Items}"  Visibility="{Binding IsDataLoaded, Converter={StaticResource DataLoaded}}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,0,0,17" Orientation="Horizontal">
+                        <Image Source="{Binding thumbnail}" Width="50" Height="50" MinHeight="50" MinWidth="50"></Image>
+                        <TextBlock Text="{Binding TitleClean}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ProgressBar IsIndeterminate="True" Visibility="{Binding IsDataLoaded, Converter={StaticResource DataLoading}}"></ProgressBar>
+    </Grid>
+</Page>

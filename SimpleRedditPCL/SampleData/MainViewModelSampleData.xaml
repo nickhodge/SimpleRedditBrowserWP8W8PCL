@@ -1,0 +1,12 @@
+﻿<vm:MainViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:SimpleRedditPCL"
+    >
+    <vm:MainViewModel.Subreddit>pics</vm:MainViewModel.Subreddit>
+    <vm:MainViewModel.IsDataLoaded>True</vm:MainViewModel.IsDataLoaded>
+            <vm:MainViewModel.Items>
+        <vm:subredditentries title="design one" thumbnail="http://a.thumbs.redditmedia.com/1zZ0Ad-aoh0eEzwx.jpg" url="http://25.media.tumblr.com/7374ff453462298a90c4d1fca20d6237/tumblr_mlyyj458gX1rz2n8ko1_500.png" />
+     </vm:MainViewModel.Items>
+
+</vm:MainViewModel>
